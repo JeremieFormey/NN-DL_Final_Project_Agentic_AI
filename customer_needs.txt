@@ -1,0 +1,70 @@
+Company Background
+
+We are a mid-sized used car dealership operating across several regions, with a growing inventory and a diverse sales team. Our management team relies heavily on data to make operational and strategic decisions. While we have accumulated years of historical sales data, we currently lack a streamlined, reliable analytics workflow that transforms raw data into actionable insights.
+
+Business Objectives
+
+We are not interested in advanced machine learning or black-box models. Instead, we need clear, interpretable analytics to guide day-to-day decisions and high-level planning. Specifically, our goals are:
+
+1. Sales Performance
+   - Understand which vehicle types and models sell the most and the least.
+   - Identify top-performing sales agents based on revenue and volume.
+   - Measure average margins per car and per agent.
+   - Detect underperformers for training or review.
+
+2. Customer Preferences
+   - Know which colors, body styles, and price ranges are most popular.
+   - Explore whether some combinations (e.g., red SUVs, black sedans) perform better.
+
+3. Seasonality and Trends
+   - Identify seasonal trends in monthly sales.
+   - Track if sales increase around holidays, promotions, or specific months.
+
+4. Profitability Analysis
+   - Break down gross margins by model, type, and agent.
+   - Flag negative or extremely low-margin transactions.
+   - Evaluate which segments (e.g., economy vs luxury) drive profit.
+
+5. Operational Efficiency
+   - Estimate inventory turnover: how long it takes to sell different cars.
+   - Compare listing date vs sold date (when data is available).
+   - Monitor data completeness (e.g., missing values for key columns like 'Sold Date').
+
+Data Structure Notes
+
+Our dataset includes the following types of information:
+
+- Car info: ID, make, model, color, type, mileage, year, etc.
+- Sales info: sale status (Sold / Not Sold), sale price, cost, profit margin.
+- Agent info: agent name or ID, region, rating (if available).
+- Date info: sale date, listing date, month of sale.
+- Customer info (sometimes): ZIP code, customer type (e.g., returning, new).
+
+Note: Some columns may be inconsistently named (e.g., Price vs Selling_Price), and some fields may be missing or incomplete in older records.
+
+Expected Deliverables
+
+We want:
+
+- A series of clean, clearly defined analysis tasks based on the dataset.
+- Visual summaries (simple plots) where relevant.
+- A professional business report with an executive summary, key insights, and recommendations.
+- Clear warnings when some analysis cannot be completed (e.g., due to missing data).
+
+Everything should be reproducible using a Jupyter Notebook or, if needed, presented through a simple dashboard (HTML or PDF).
+
+Constraints & Business Rules
+
+- Do not include unsold cars (Sale Status != 'Sold') in margin or revenue calculations.
+- Do not use predictions, clustering, or ML models.
+- Avoid over-interpreting small datasets or missing values.
+- If a task depends on missing columns, it should be skipped and explained.
+- The analysis must be easily explainable to non-technical managers.
+
+Example Use Cases
+
+- A manager wants to understand why certain agents are underperforming.
+- Marketing asks for a list of best-selling car colors by month.
+- Finance wants a breakdown of high-margin vehicles to inform pricing strategy.
+- Operations needs to know how long each type of car takes to sell.
+- Leadership asks: "Are convertibles only selling well in summer?"
