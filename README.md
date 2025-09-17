@@ -53,3 +53,34 @@ It allows agents to perform meaningful analysis such as:
 - Tracking performance by car type or sales agent
 - Identifying high-margin deals
 - Exploring relationships between color, feedback, and success -> We could perform machine learning task, we won't because we focus on agents but the combination of both would be very interesting
+
+Developing this multi-agent system to autonomously analyze a dataset and generate business reports presented several interesting challenges, both technical and conceptual.
+
+### Challenges and Limitations
+One of the key difficulties was ensuring that each agent, especially the Project Manager, Analyst, and Reporter, operated cohesively despite relying on independent LLM calls. Prompt design played a central role here: while we aimed for flexibility and generality, overly broad prompts sometimes caused the agents to hallucinate or produce generic, ungrounded outputs. For example, the Reporter occasionally invented insights (e.g., listing "Car A" or "Agent X", or create names like Bob and Charlie in the first example) when the Analyst had failed to extract concrete results from the dataset.
+
+A related issue was column name mismatches. Because the Project Manager and Analyst agents rely on inferred column semantics from user queries and sample rows, discrepancies between expected and actual column names (e.g., "selling_price" vs "Price") led to failed tasks or skipped analysis. Initially, these were not well handled, resulting in empty or misleading reports. That why we fixed them (in the first cells of the notebook)
+
+How We Addressed Them ?
+
+
+To combat hallucination and inconsistency, we refined the prompts significantly:
+
+The PM Agent was instructed to only generate tasks feasible given the actual structure of the dataset.
+
+The Analyst Agent was guided to clearly print and label results, and to skip tasks when required columns were missing — explicitly mentioning the cause.
+
+The Reporter Agent was constrained to only summarize what was actually computed, and never to fabricate content when results were unavailable.
+
+
+
+### Areas for Improvement
+This project underscored the importance of robust **prompt engineering** when orchestrating LLMs in structured workflows. It also highlighted the fragility of such systems when relying on implicit assumptions about data. In the future, we could improve reliability by:
+
+Automatically detecting and normalizing column names via fuzzy matching.
+
+Introducing feedback loops: e.g., if the Reporter detects a lack of results, it could signal the PM or Analyst to retry or adjust.
+
+Adding memory or a session context, so that agents can refer to prior steps more consistently.
+
+Lastly, while the pipeline performs well on well-structured datasets, it remains sensitive to noisy or incomplete data. Enhancing its ability to adapt to varying schema — potentially via schema reasoning or few-shot column description — would be a valuable next step.
