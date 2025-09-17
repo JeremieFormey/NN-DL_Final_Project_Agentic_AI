@@ -1,5 +1,20 @@
-# NN-DL_Final_Project_Agentic_AI
+# Neural Network and Deep Learning Course : Final Project
 
+This notebook presents a project combining **Agentic AI** and **Retrieval-Augmented Generation (RAG)** to simulate a realistic, collaborative workflow involving the creation of a visual dashboard based on used car sales data.
+
+
+The objective is to produce an interpreted visual report using:
+- A client request document (`customer_needs.txt`)
+- A structured dataset (`used_car_sales.csv`)
+
+Three specialized AI agents collaborate in this simulation:
+- **Project Manager**: understands client needs using RAG
+- **Data Analyst**: explores and analyzes the CSV data
+- **Developer**: generates code to visualize relevant insights
+
+Dataset : https://www.kaggle.com/datasets/sandeep1080/used-car-sales/data
+
+Source : Kaggle
 ## Introduction
 
 This project simulates a realistic, collaborative workflow using **multiple AI agents** using **LangChain** and **Retrieval-Augmented Generation (RAG)**. 
