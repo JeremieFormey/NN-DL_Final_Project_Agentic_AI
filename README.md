@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project simulates a realistic, collaborative workflow using **multiple AI agents** powered by **LangChain** and **Retrieval-Augmented Generation (RAG)**. 
+This project simulates a realistic, collaborative workflow using **multiple AI agents** using **LangChain** and **Retrieval-Augmented Generation (RAG)**. 
 
 The purpose of the project is to implement very inovative technologies : RAG and especially the Agentic AI, in a real life use-case and to make the most of their potential.
 
